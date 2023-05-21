@@ -2,27 +2,28 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btn_send_notif"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SendNotif">
 
     <Button
-        android:id="@+id/btn_sendNotif"
+        android:id="@+id/btn_riders_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="102dp"
-        android:text="Enviar Notificación"
+        android:layout_marginTop="104dp"
+        android:text="Solicitud de Riders"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_receiveNotif"
+        android:id="@+id/btn_send_notif_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="102dp"
-        android:text="Recibir Notificación"
+        android:layout_marginTop="100dp"
+        android:text="Notificación a los RIders"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sendNotif" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_riders_request" />
 </androidx.constraintlayout.widget.ConstraintLayout>

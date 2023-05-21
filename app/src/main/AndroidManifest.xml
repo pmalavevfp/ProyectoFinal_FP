@@ -12,6 +12,12 @@
         android:theme="@style/Theme.FinalWorkPushNotif"
         tools:targetApi="31">
         <activity
+            android:name=".ReceiveNotif"
+            android:exported="false" />
+        <activity
+            android:name=".SendNotif"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
