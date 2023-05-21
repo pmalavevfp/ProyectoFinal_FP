@@ -1,5 +1,6 @@
 package com.plmv.finalworkpushnotif;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -7,6 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +42,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        FirebaseMessaging.getInstance().subscribeToTopic("callToRiders").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                Toast.makeText(MainActivity.this, "Se ha incluido al grupo callToRiders", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void changeActivity (int x){
