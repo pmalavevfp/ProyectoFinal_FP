@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTheme" parent="android:Theme.Holo.NoActionBar.Fullscreen"/>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar"/>
     <style name="title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -13,6 +13,7 @@
         <item name="android:minHeight">@dimen/height_min_btn</item>
         <item name="android:layout_margin">@dimen/margen_btn</item>
         <item name="android:textSize">@dimen/txt_btn</item>
+        <item name="android:background">@drawable/btn_color</item>
     </style>
     <style name="img">
         <item name="android:layout_width">@dimen/width_img</item>

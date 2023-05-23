@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent;
 
         if (x==1){
-            intent = new Intent (getApplicationContext(), SendNotif.class);
+            intent = new Intent (getApplicationContext(), PartnerSend.class);
         }else{
             intent = new Intent (getApplicationContext(), ReceiveNotif.class);
         }
