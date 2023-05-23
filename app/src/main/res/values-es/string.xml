@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinalWorkPushNotif</string>
+    <string name="btn_partner">Partners</string>
+    <string name="btn_riders">Riders</string>
+    <string name="t_order">Pedido</string>
+    <string name="btn_request_rider">Solicitar Riders</string>
+    <string name="btn_send_order">Enviar Pedido</string>
+    <string name="btn_accept">Aceptar Pedido</string>
+    <string name="txt_wait">Estamos a la espera de Pedidos</string>
+    <string name="btn_go_order">Buscar Pedido</string>
+    <string name="btn_decline">Reasignar</string>
+    <string name="t_pick_order">Recoger Pedido</string>
+    <string name="btn_picked">Recogido</string>
+    <string name="t_deliver_order">Entregar Pedido</string>
+    <string name="btn_delivered">Entregado</string>
+    <string name="btn_declined">Reasignado</string>
+    <string name="t_Ready">Listo</string>
+</resources>

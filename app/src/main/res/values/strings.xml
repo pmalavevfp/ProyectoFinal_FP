@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">FinalWorkPushNotif</string>
+    <string name="btn_partner">Partners</string>
+    <string name="btn_riders">Riders</string>
+    <string name="t_order">Order</string>
+    <string name="btn_request_rider">Request</string>
+    <string name="btn_send_order">Send Order</string>
+    <string name="btn_accept">Accept</string>
+    <string name="txt_wait">We are waiting for orders</string>
+    <string name="btn_go_order">Go to Order</string>
+    <string name="btn_decline">Decline</string>
+    <string name="t_pick_order">Pick Order</string>
+    <string name="btn_picked">Picked up</string>
+    <string name="t_deliver_order">Deliver Order</string>
+    <string name="btn_delivered">Delivered</string>
+    <string name="btn_declined">Declined Order</string>
+    <string name="t_Ready">Ready</string>
 </resources>

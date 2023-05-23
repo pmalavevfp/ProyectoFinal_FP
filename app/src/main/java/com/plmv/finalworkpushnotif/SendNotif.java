@@ -101,7 +101,7 @@ public class SendNotif extends AppCompatActivity {
             notif.put("detalle", "asdfgasdfg");
             notif.put("color","purple");
             notif.put("oneDevice","1");
-            notif.put("img", "https://raw.githubusercontent.com/pmalavevfp/Interface22-23/main/API-REST/deliver1.jpg")
+            notif.put("img", "https://raw.githubusercontent.com/pmalavevfp/Interface22-23/main/API-REST/deliver1.jpg");
             jsob.put ("data",notif);
 
             String URL="https://fcm.googleapis.com/fcm/send";  //https://fcm.googleapis.com/fcm/send
