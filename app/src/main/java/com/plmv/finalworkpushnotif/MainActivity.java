@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         btn_sendNotif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 changeActivity(1);
             }
         });
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         if (x==1){
             intent = new Intent (getApplicationContext(), PartnerSend.class);
         }else{
-            intent = new Intent (getApplicationContext(), ReceiveNotif.class);
+            intent = new Intent (getApplicationContext(), StartRiders.class);
         }
 
         startActivity(intent);

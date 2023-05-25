@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:layout_gravity="center_horizontal"
     android:background="@drawable/bckground"
-    tools:context=".ReceiveNotif">
+    tools:context=".SendNotif">
 
     <TextView
         android:id="@+id/tvPartner"
@@ -23,99 +23,69 @@
         android:layout_gravity="center_horizontal"
         tools:layout_editor_absoluteY="50dp"
         android:padding="12dp"
+
         />
 
     <TextView
-        android:id="@+id/order_number_R"
+        android:id="@+id/order_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/t_order_nnumber"
         android:textSize="25sp"
         android:textStyle="bold"
         android:textColorHint="@color/black"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
         android:gravity="center"
+        android:layout_weight="1"
         android:padding="12dp"
         />
 
     <TextView
-        android:id="@+id/partner_to_send_R"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColorHint="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:padding="12dp"
-        />
 
-    <TextView
-        android:id="@+id/address_to_send_R"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColorHint="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:padding="12dp"
-        />
-
-    <TextView
-        android:id="@+id/tele_R"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColorHint="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:padding="12dp"
-        />
-
-
-
-    <TextView
-        android:id="@+id/tvData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColorHint="@color/black"
+        android:layout_weight="1"
+        android:gravity="center"
+        />
 
-        <Button
-            android:id="@+id/btn_accept"
-            style="@style/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_accept"
-            android:textColor="@color/white"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:padding="16dp"
-            />
-        <Button
-            android:id="@+id/btn_decline"
-            style="@style/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_decline"
-            android:textColor="@color/white"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:padding="16dp"
-            />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/t_address_order"
+        android:textSize="25sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        android:inputType="textMultiLine"
+        />
 
+    <TextView
+        android:id="@+id/tvTele"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/t_telephone_order"
+        android:textSize="25sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        android:inputType="number"
+        />
+
+    <Button
+        android:id="@+id/btn_delivered"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_send_order"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:padding="12dp"
+        />
 
 </LinearLayout>
