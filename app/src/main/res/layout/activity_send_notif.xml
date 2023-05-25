@@ -1,29 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/btn_send_notif"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/bckground"
     tools:context=".SendNotif">
+
+    <TextView
+        android:id="@+id/tvPartner"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/green_200"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:text="@string/t_order"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        tools:layout_editor_absoluteY="50dp"
+        android:padding="12dp"
+
+        />
+
+    <TextView
+        android:id="@+id/order_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/t_order_nnumber"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:padding="12dp"
+        />
+
+    <TextView
+        android:id="@+id/partner_to_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Café Final Work"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColorHint="@color/black"
+        android:layout_weight="1"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/etAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/t_address_order"
+        android:textSize="25sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        android:inputType="textMultiLine"
+        />
+
+    <EditText
+        android:id="@+id/etTele"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/t_telephone_order"
+        android:textSize="25sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        android:inputType="number"
+        />
+
+    <TextView
+        android:id="@+id/cash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5,00 Euros"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        />
+
 
     <Button
         android:id="@+id/btn_riders_request"
-        android:layout_width="wrap_content"
+        style="@style/button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:text="Solicitud de Riders"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/btn_send_order"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:padding="12dp"
+        />
 
-    <Button
-        android:id="@+id/btn_send_notif_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Notificación a los RIders"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_riders_request" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

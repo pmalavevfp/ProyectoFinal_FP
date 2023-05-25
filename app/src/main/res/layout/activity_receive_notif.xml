@@ -1,21 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btn_send_notif"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/bckground"
     tools:context=".ReceiveNotif">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvPartner"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/green_200"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="35dp"
+        android:text="@string/t_order"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        tools:layout_editor_absoluteY="50dp"
+        android:padding="12dp"
+        />
+
+    <TextView
+        android:id="@+id/order_number_R"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Receive Notif"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        />
+
+    <TextView
+        android:id="@+id/partner_to_send_R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        />
+
+    <TextView
+        android:id="@+id/address_to_send_R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        />
+
+    <TextView
+        android:id="@+id/tele_R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColorHint="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="12dp"
+        />
+
+
 
     <TextView
         android:id="@+id/tvData"
@@ -26,4 +88,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_riders_request"
+        style="@style/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ir por el pedido"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:padding="12dp"
+        />
+</LinearLayout>
