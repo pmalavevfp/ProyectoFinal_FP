@@ -18,7 +18,7 @@
         android:textColor="@color/white"
         android:gravity="center"
         android:textSize="35dp"
-        android:text="@string/t_order"
+        android:text="@string/t_deliver_order"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
         tools:layout_editor_absoluteY="50dp"
@@ -27,10 +27,10 @@
         />
 
     <TextView
-        android:id="@+id/order_number"
+        android:id="@+id/order_number41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/t_order_nnumber"
+        android:text=""
         android:textSize="25sp"
         android:textStyle="bold"
         android:textColorHint="@color/black"
@@ -51,7 +51,7 @@
         />
 
     <TextView
-        android:id="@+id/tvAddress"
+        android:id="@+id/tvAddressD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/t_address_order"
@@ -64,7 +64,7 @@
         />
 
     <TextView
-        android:id="@+id/tvTele"
+        android:id="@+id/tvTeleD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/t_telephone_order"
@@ -81,7 +81,7 @@
         style="@style/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_send_order"
+        android:text="@string/btn_delivered"
         android:textColor="@color/white"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"

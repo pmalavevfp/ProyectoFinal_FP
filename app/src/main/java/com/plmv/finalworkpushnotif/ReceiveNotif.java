@@ -34,22 +34,7 @@ public class ReceiveNotif extends AppCompatActivity {
         btnAccept = findViewById(R.id.btn_accept);
         btnDecline = findViewById(R.id.btn_decline);
 
-        btnAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                changeActivity(1);
-            }
-        });
-
-        btnDecline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                changeActivity(2);
-            }
-        });
-
-
-        Bundle datos = this.getIntent().getExtras();
+               Bundle datos = this.getIntent().getExtras();
 
         if (datos != null) {
             partnerR = datos.getString("partner");
@@ -57,13 +42,28 @@ public class ReceiveNotif extends AppCompatActivity {
 
             orderNumberR = datos.getString("order");
             addressR = datos.getString("address");
+
             teleR = datos.getString("tele");
             cashR = datos.getString("cash");
             color = datos.getString("color");
             oneDevice = datos.getString("oneDevice");
-            Log.e("TAG", teleR);
 
+            Log.e("TAG", teleR);
         }
+
+        btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeActivity(1, datos);
+            }
+        });
+
+        btnDecline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeActivity(2, datos);
+            }
+        });
 
         orderNumber.setText(orderNumberR);
         partnet.setText(partnerR);
@@ -74,7 +74,7 @@ public class ReceiveNotif extends AppCompatActivity {
         Toast.makeText(this, color, Toast.LENGTH_LONG).show();
     }
 
-    private void changeActivity(int x) {
+    private void changeActivity(int x, Bundle datos) {
         Intent intent;
 
         if (x == 1) {
@@ -82,7 +82,7 @@ public class ReceiveNotif extends AppCompatActivity {
         } else {
             intent = new Intent(getApplicationContext(), DeclineOrder.class);
         }
-
+        intent.putExtras(datos);
         startActivity(intent);
 
     }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,8 @@ public class SendNotif extends AppCompatActivity {
     TextView cash, partnerSend, orderNumber;
     EditText etTele =null, etAddress=null;
 
+    String addressP;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,6 +45,7 @@ public class SendNotif extends AppCompatActivity {
         orderNumber=findViewById(R.id.order_number);
         etAddress=findViewById(R.id.etAddress);
         etTele=findViewById(R.id.etTele);
+        addressP="Café Final Work";
 
         btn_ridersRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +118,9 @@ public class SendNotif extends AppCompatActivity {
         }
     }
 
+
+
+
     private void callRiders( String cashSend, String partnerSendS, String orderNumberSend, String etAddressSend, String etTeleSend) {
 
 
@@ -141,6 +148,7 @@ public class SendNotif extends AppCompatActivity {
             notif.put("order",orderNumberSend);
             notif.put("address",etAddressSend);
             notif.put("tele",etTeleSend);
+            notif.put("addressP", "Ronda de Outeiro, No. 122, A Coruña, CP 15007");
             notif.put("color","purple");
             notif.put("oneDevice","1");
             notif.put("img", "https://raw.githubusercontent.com/pmalavevfp/Interface22-23/main/API-REST/deliver1.jpg");
@@ -158,6 +166,8 @@ public class SendNotif extends AppCompatActivity {
                     return  header;
                 }
             };
+
+            Log.e ("TAG", "ESTOY AQUI Y TODO VA BIEN");
             Toast.makeText(getApplicationContext(),etAddressSend, Toast.LENGTH_LONG).show();
             mynotif.add(request);
 

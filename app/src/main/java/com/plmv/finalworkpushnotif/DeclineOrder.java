@@ -1,4 +1,14 @@
 package com.plmv.finalworkpushnotif;
 
-public class DeclineOrder {
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class DeclineOrder extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_decline_order);
+    }
 }

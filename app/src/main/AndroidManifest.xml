@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FinalWorkPushNotif"
         tools:targetApi="31">
         <activity
+            android:name=".DeclineOrder"
+            android:exported="false" />
+        <activity
             android:name=".DeliverOrder"
             android:exported="false" />
         <activity

@@ -123,7 +123,7 @@ public class FCM_Notif extends FirebaseMessagingService {
             ab.setUsage(AudioAttributes.USAGE_NOTIFICATION);
             AudioAttributes audioAttributes = ab.build();
 
-            //nc.setSound(Uri.parse("android.resources:"+context.getPackageName()+"/"+R.raw.pacman-song, audioAttributes));
+            //nc.setSound(Uri.parse("android.resource://" + context.getPackageName() + "/raw/pacman_song", audioAttributes));
             //nc.setSound(Uri.parse("C:\Users\PLMV\Desktop\ANdroidProyect\ProyectoFinal\ProyectoFinal_FP\app\main\res\raw"+"", ));
 
 
@@ -156,6 +156,7 @@ public class FCM_Notif extends FirebaseMessagingService {
 
             Random random=new Random();
             int idNotity =random.nextInt(8000);
+            Log.e ("RANDOM", idNotity+"");
 
             assert nm !=null;
             nm.notify(idNotity,builder.build());
