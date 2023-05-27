@@ -6,6 +6,8 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.AudioAttributes;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,10 +17,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.squareup.picasso.Picasso;
 
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
 
 public class FCM_Notif extends FirebaseMessagingService {
     public static final String NOMBRE_CANAL="nombreCanal1";
@@ -77,16 +82,18 @@ public class FCM_Notif extends FirebaseMessagingService {
 
             String xx= remoteMessage.getData().get("oneDevice");
 
+            String imgUrl=remoteMessage.getData().get("imgUrl");
+
             int x=Integer.valueOf(xx);
 
 
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                mayorqueoreo(titulo, detalle, color, x, cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP );
-            }
-
-            if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.O) {
-                menorqueoreo(titulo, detalle);
-            }
+            //if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                mayorqueoreo(titulo, detalle, color, x, cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP,imgUrl );
+//            }
+//
+//            if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.O) {
+//                menorqueoreo(titulo, detalle);
+//            }
         }
 
 
@@ -102,7 +109,7 @@ public class FCM_Notif extends FirebaseMessagingService {
 
 
     //private void mayorqueoreo(String titulo, String detalle, String foto) {
-    private void mayorqueoreo(String titulo, String detalle, String color, int x,String cashSend, String partnerSendS,String orderNumberSend,String etAddressSend,String etTeleSend, String addressP) {
+    private void mayorqueoreo(String titulo, String detalle, String color, int x,String cashSend, String partnerSendS,String orderNumberSend,String etAddressSend,String etTeleSend, String addressP,String imgUrl) {
         Context context = null;
         //Toast.makeText(getApplicationContext(), orderNumberSend, Toast.LENGTH_LONG).show();
         Log.e("TAG", orderNumberSend);
@@ -125,7 +132,7 @@ public class FCM_Notif extends FirebaseMessagingService {
             ab.setUsage(AudioAttributes.USAGE_NOTIFICATION);
             AudioAttributes audioAttributes = ab.build();
 
-            //nc.setSound(Uri.parse("android.resource://" + context.getPackageName() + "/raw/pacman_song", audioAttributes));
+            //nc.setSound(Uri.parse("android.resource://" + context.getPackageName() + "res/raw/pacman_song1", audioAttributes));
             //nc.setSound(Uri.parse("C:\Users\PLMV\Desktop\ANdroidProyect\ProyectoFinal\ProyectoFinal_FP\app\main\res\raw"+"", ));
 
 
@@ -133,26 +140,65 @@ public class FCM_Notif extends FirebaseMessagingService {
             assert nm!=null;
             nm.createNotificationChannel(nc);
         }
+
+        Bitmap largeIcon= BitmapFactory.decodeResource(getResources(),R.drawable.deliver2);
+//        NotificationCompat.BigTextStyle style = new NotificationCompat.BigTextStyle();
+//        style.bigText(detalle);
+//        style.setSummaryText(titulo);
+
+//        NotificationCompat.BigPictureStyle style = new NotificationCompat.BigPictureStyle();
+//        style.setBigContentTitle(titulo);
+//        style.setSummaryText(detalle);
+//        try {
+//            style.bigPicture(Glide.with(FCM_Notif.this).asBitmap().load(imgUrl).submit().get());
+//        } catch (ExecutionException e) {
+//            throw new RuntimeException(e);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+
+
+        //Bitmap imf_foto= Picasso.get().load(imgUrl).get();
+        //style.bigPicture(Picasso.get().load(imgUrl).centerCrop().into(););
+
+
         try {
-            PendingIntent pendingIntent2=clicknoti(color, x,cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP);
+            PendingIntent pendingIntent2=clicknoti(color, x,cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP, titulo, detalle, imgUrl);
             NotificationCompat.Builder nb = new NotificationCompat.Builder(context, ID_CANAL);
             nb.setDefaults(Notification.DEFAULT_ALL);
             nb.setPriority(NotificationCompat.PRIORITY_HIGH);
             nb.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
 
             //Bitmap imf_foto= Picasso.get().load(foto).get();
-            builder.setAutoCancel(true)
+            builder.setWhen(System.currentTimeMillis())
             //nb.setAutoCancel(true)
-                    .setWhen(System.currentTimeMillis())
+
+                    .setAutoCancel(true)
                     .setContentTitle(titulo)
                     .setSmallIcon(R.drawable.baseline_bike_scooter_24)
                     .setContentText(detalle)
-                    //.setStyle(new NotificationCompat.BigPictureStyle()
-                    //       .bigPicture(imf_foto).bigLargeIcon(null))
+                    .setLargeIcon(largeIcon)
+//                    .setStyle(new NotificationCompat.BigPictureStyle()
+//                    .bigPicture(imf_foto).bigLargeIcon(null))
+
+
+//                    .setStyle(new NotificationCompat.BigTextStyle()
+//                            //.bigText(getString(detalle))
+//                            .bigText(detalle)
+//                            .setBigContentTitle("Big Content Title")
+//                            .setSummaryText("Summary Text"))
+
+                    .setStyle(new NotificationCompat.BigPictureStyle()
+                            .bigPicture(largeIcon)
+                            .bigLargeIcon(null))
+
+
                     .setContentIntent(pendingIntent2)
+
                     //.setSound(Uri.parse("https://www.locutortv.es/sonido/2016_1enero_locutores_locuciones/musica_sin_copyright_royalty_free_music/dance_royalty_free_music_musica_sin_copyright/geriatrico128FBC_dance.mp3"))
 
                     .setContentInfo("nuevo");
+                    //.setStyle(style);
 
             //Notification notification=nb.build();
 
@@ -169,14 +215,16 @@ public class FCM_Notif extends FirebaseMessagingService {
         }
     }
 
-    public PendingIntent clicknoti(String color, int x,String cashSend,String partnerSendS, String orderNumberSend,String etAddressSend,String etTeleSend, String addressP){
+    public PendingIntent clicknoti(String color, int x,String cashSend,String partnerSendS, String orderNumberSend,String etAddressSend,String etTeleSend, String addressP, String titulo, String detalle, String imgUrl){
         Intent nf;
         if (x==1){
             nf=new Intent(getApplicationContext(), ReceiveNotif.class);
         }else{
             nf=new Intent(getApplicationContext(), MainActivity.class);
         }
-
+        nf.putExtra("titulo", titulo);
+        nf.putExtra("detalle", detalle);
+        nf.putExtra("imgUrl",imgUrl);
         nf.putExtra("cash",cashSend);
         nf.putExtra("partner",partnerSendS);
         nf.putExtra("order",orderNumberSend);

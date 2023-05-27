@@ -147,8 +147,9 @@ public class SendNotif extends AppCompatActivity {
         try{
             jsob.put("to","doBE5wOiQOqTjIoWfngBmD:APA91bGRHd1FUQ8Q_ijC0r4mH-Ca8S7CbxkoCeEpXLak_IGl-dsvgZiUN76N3uwF7V9p6juSbrGzpPv-IK1S43kP6ak6i0I6FOxWyVcQ5Bt5pDSj-n7toG6qLNsZ76OlHqspuCEFC7FQ");
             JSONObject notif=new JSONObject();
-            notif.put ("titulo", "Tienes una nueva entrega");
-            notif.put("detalle", "Dirigite a recoger el pedido en "+ partnerSendS);
+            notif.put ("titulo", "Tienes una nueva entrega pedido");
+            //notif.put("detalle", "Dirigite a recoger el \npedido en "+ partnerSendS);
+            notif.put("detalle", " en "+ partnerSendS);
             notif.put("cash",cashSend);
             notif.put("partner",partnerSendS);
             notif.put("order",orderNumberSend);
@@ -157,7 +158,7 @@ public class SendNotif extends AppCompatActivity {
             notif.put("addressP", "Ronda de Outeiro, No. 122, A Coruña, CP 15007");
             notif.put("color","purple");
             notif.put("oneDevice","1");
-            notif.put("img", "https://raw.githubusercontent.com/pmalavevfp/Interface22-23/main/API-REST/deliver1.jpg");
+            notif.put("imgUrl", "https://raw.githubusercontent.com/pmalavevfp/Interface22-23/main/API-REST/deliver1.jpg");
             jsob.put ("data",notif);
 
             String URL="https://fcm.googleapis.com/fcm/send";
@@ -189,6 +190,7 @@ public class SendNotif extends AppCompatActivity {
         Toast.makeText(this,"La solicitud de Rider fué enviada", Toast.LENGTH_LONG).show();
         Intent intent = new Intent (getApplicationContext(), PartnerSend.class);
         startActivity(intent);
+        finish();
     }
 
 
