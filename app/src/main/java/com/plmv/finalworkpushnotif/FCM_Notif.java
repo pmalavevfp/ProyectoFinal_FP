@@ -4,11 +4,14 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioAttributes;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,8 +29,8 @@ import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
 public class FCM_Notif extends FirebaseMessagingService {
-    public static final String NOMBRE_CANAL="nombreCanal1";
-    public static final String ID_CANAL="idCanal1";
+    public static final String NOMBRE_CANAL="nombreCanal2";
+    public static final String ID_CANAL="idCanal2";
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
@@ -113,11 +116,17 @@ public class FCM_Notif extends FirebaseMessagingService {
         Context context = null;
         //Toast.makeText(getApplicationContext(), orderNumberSend, Toast.LENGTH_LONG).show();
         Log.e("TAG", orderNumberSend);
+        Uri soundUri = Uri.parse(
+                "android.resource://" +
+                        getApplicationContext().getPackageName() +
+                        "/" +
+                        R.raw.pacman_song);
 
         String id="mensaje";
         NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this,id);
+
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
 
@@ -130,11 +139,15 @@ public class FCM_Notif extends FirebaseMessagingService {
             AudioAttributes.Builder ab= new AudioAttributes.Builder();
             ab.setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION);
             ab.setUsage(AudioAttributes.USAGE_NOTIFICATION);
+            //ab.setUsage(AudioAttributes.USAGE_ALARM);
             AudioAttributes audioAttributes = ab.build();
 
-            //nc.setSound(Uri.parse("android.resource://" + context.getPackageName() + "res/raw/pacman_song1", audioAttributes));
+            MediaPlayer mp =MediaPlayer.create(this, R.raw.pacman_song);
+            mp.start();
+            //nc.setSound(soundUri, audioAttributes);
             //nc.setSound(Uri.parse("C:\Users\PLMV\Desktop\ANdroidProyect\ProyectoFinal\ProyectoFinal_FP\app\main\res\raw"+"", ));
-
+            Uri soundCH=Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+ "://" + getPackageName() +"/"+R.raw.pacman_song);
+            nc.setSound(soundCH, audioAttributes);
 
             nc.setShowBadge(true);
             assert nm!=null;
@@ -194,9 +207,9 @@ public class FCM_Notif extends FirebaseMessagingService {
 
 
                     .setContentIntent(pendingIntent2)
-
+                    .setSilent(true)
                     //.setSound(Uri.parse("https://www.locutortv.es/sonido/2016_1enero_locutores_locuciones/musica_sin_copyright_royalty_free_music/dance_royalty_free_music_musica_sin_copyright/geriatrico128FBC_dance.mp3"))
-
+                    //.setSound(soundUri)
                     .setContentInfo("nuevo");
                     //.setStyle(style);
 
@@ -205,6 +218,8 @@ public class FCM_Notif extends FirebaseMessagingService {
             Random random=new Random();
             int idNotity =random.nextInt(8000);
             Log.e ("RANDOM", idNotity+"");
+
+
 
             assert nm !=null;
             nm.notify(idNotity,builder.build());
