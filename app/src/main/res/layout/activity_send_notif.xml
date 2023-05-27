@@ -23,7 +23,6 @@
         android:layout_gravity="center_horizontal"
         tools:layout_editor_absoluteY="50dp"
         android:padding="12dp"
-
         />
 
     <TextView
@@ -55,20 +54,38 @@
         />
 
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textColorHint="@color/black"
+        android:textSize="10sp"
         android:layout_weight="1"
+        />
+
+    <!--<com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:padding="10dp"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_address"
+        >
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etAddress11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        android:textSize="25sp"
+        android:inputType="textMultiLine"
         android:gravity="center"
         />
+
+    </com.google.android.material.textfield.TextInputLayout>-->
 
     <EditText
         android:id="@+id/etAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/t_address_order"
+        android:hint="@string/address"
         android:textSize="25sp"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
@@ -77,11 +94,39 @@
         android:inputType="textMultiLine"
         />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_weight="1"
+        />
+
+    <!--<com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:padding="10dp"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_tele"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etTele11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/telephone"
+            android:textSize="25sp"
+            android:inputType="phone"
+            android:gravity="center"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>-->
+
     <EditText
         android:id="@+id/etTele"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/t_telephone_order"
+        android:hint="@string/telephone"
         android:textSize="25sp"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"

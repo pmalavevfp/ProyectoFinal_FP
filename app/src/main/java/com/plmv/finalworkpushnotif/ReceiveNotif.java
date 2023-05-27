@@ -34,7 +34,7 @@ public class ReceiveNotif extends AppCompatActivity {
         btnAccept = findViewById(R.id.btn_accept);
         btnDecline = findViewById(R.id.btn_decline);
 
-               Bundle datos = this.getIntent().getExtras();
+        Bundle datos = this.getIntent().getExtras();
 
         if (datos != null) {
             partnerR = datos.getString("partner");
@@ -84,6 +84,7 @@ public class ReceiveNotif extends AppCompatActivity {
         }
         intent.putExtras(datos);
         startActivity(intent);
+        finish();
 
     }
 }

@@ -71,6 +71,7 @@ public class PickToOrder extends AppCompatActivity {
             }
             intent.putExtras(datos);
             startActivity(intent);
+            finish();
 
         }
 }

@@ -16,6 +16,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,12 +29,14 @@ public class SendNotif extends AppCompatActivity {
 
     Button btn_ridersRequest,btn_sendNotifGroup;
     TextView cash, partnerSend, orderNumber;
-    EditText etTele =null, etAddress=null;
+    EditText etTele =null , etAddress=null;
+
+    //TextInputEditText etAddress11, etTele11;
 
     String addressP;
 
 
-    @SuppressLint("MissingInflatedId")
+    //@SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +48,9 @@ public class SendNotif extends AppCompatActivity {
         partnerSend=findViewById(R.id.partner_to_send);
         orderNumber=findViewById(R.id.order_number);
         etAddress=findViewById(R.id.etAddress);
+        //etAddress11=findViewById(R.id.etAddress11);
         etTele=findViewById(R.id.etTele);
+        //etTele11=findViewById(R.id.etTele11);
         addressP="Café Final Work";
 
         btn_ridersRequest.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +63,9 @@ public class SendNotif extends AppCompatActivity {
                 String orderNumberSend=orderNumber.getText().toString();
                 String etAddressSend=etAddress.getText().toString();
                 String etTeleSend=etTele.getText().toString();
+
+
                 if (etAddress != null && etTele!=null) {
-
-
                     Toast.makeText(getApplicationContext(),etAddressSend, Toast.LENGTH_LONG).show();
                     callRiders (cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend);
 

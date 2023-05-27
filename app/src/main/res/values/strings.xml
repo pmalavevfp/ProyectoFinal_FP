@@ -18,4 +18,7 @@
     <string name="t_order_nnumber">Order No. 6CFW100</string>
     <string name="t_address_order">Address</string>
     <string name="t_telephone_order">Teléfono</string>
+    <string name="address">Address to delivery</string>
+    <string name="requirement">Essential requirements</string>
+    <string name="telephone">Telephone</string>
 </resources>

@@ -10,11 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class DeliverOrder extends AppCompatActivity {
-
+    static int end=1;
     Button btnDelivered;
 
     String color, partnerR, orderNumberR, addressR, teleR, cashR, oneDevice;
     TextView orderNumber, teleD, addressD;
+
+    Bundle datos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class DeliverOrder extends AppCompatActivity {
             }
         });
 
-        Bundle datos = this.getIntent().getExtras();
+        datos = this.getIntent().getExtras();
 
         if (datos != null) {
             orderNumberR = datos.getString("order");
@@ -51,8 +53,20 @@ public class DeliverOrder extends AppCompatActivity {
     private void delivered ( ) {
         //Aqui va el cierre de proceso enviando a la bd de dato fa finalización de la entrega
 
-        Toast.makeText(getApplicationContext(), "Finalizó el proceso de engrega", Toast.LENGTH_SHORT).show();;
-        Intent intent = new Intent(getApplicationContext(), StartRiders.class);
-        startActivity(intent);
+
+        if (end>1) {
+            Toast.makeText(getApplicationContext(), "Finalizó el proceso de engrega", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), StartRiders.class);
+            startActivity(intent);
+
+
+        }else {
+            end+=1;
+            Toast.makeText(getApplicationContext(), "Hay que reconfirmar la entrega", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), DeliverOrder.class);
+            intent.putExtras(datos);
+            startActivity(intent);
+        }
+        finish();
     }
 }

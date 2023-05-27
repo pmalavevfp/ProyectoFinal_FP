@@ -62,6 +62,8 @@ public class FCM_Notif extends FirebaseMessagingService {
 
             String color= remoteMessage.getData().get("color");
 
+            String addressP=remoteMessage.getData().get("addressP");
+
 
             String cashSend= remoteMessage.getData().get("cash");
 
@@ -79,7 +81,7 @@ public class FCM_Notif extends FirebaseMessagingService {
 
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                mayorqueoreo(titulo, detalle, color, x, cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend );
+                mayorqueoreo(titulo, detalle, color, x, cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP );
             }
 
             if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.O) {
@@ -100,7 +102,7 @@ public class FCM_Notif extends FirebaseMessagingService {
 
 
     //private void mayorqueoreo(String titulo, String detalle, String foto) {
-    private void mayorqueoreo(String titulo, String detalle, String color, int x,String cashSend, String partnerSendS,String orderNumberSend,String etAddressSend,String etTeleSend) {
+    private void mayorqueoreo(String titulo, String detalle, String color, int x,String cashSend, String partnerSendS,String orderNumberSend,String etAddressSend,String etTeleSend, String addressP) {
         Context context = null;
         //Toast.makeText(getApplicationContext(), orderNumberSend, Toast.LENGTH_LONG).show();
         Log.e("TAG", orderNumberSend);
@@ -132,7 +134,7 @@ public class FCM_Notif extends FirebaseMessagingService {
             nm.createNotificationChannel(nc);
         }
         try {
-            PendingIntent pendingIntent2=clicknoti(color, x,cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend );
+            PendingIntent pendingIntent2=clicknoti(color, x,cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP);
             NotificationCompat.Builder nb = new NotificationCompat.Builder(context, ID_CANAL);
             nb.setDefaults(Notification.DEFAULT_ALL);
             nb.setPriority(NotificationCompat.PRIORITY_HIGH);
@@ -167,7 +169,7 @@ public class FCM_Notif extends FirebaseMessagingService {
         }
     }
 
-    public PendingIntent clicknoti(String color, int x,String cashSend,String partnerSendS, String orderNumberSend,String etAddressSend,String etTeleSend){
+    public PendingIntent clicknoti(String color, int x,String cashSend,String partnerSendS, String orderNumberSend,String etAddressSend,String etTeleSend, String addressP){
         Intent nf;
         if (x==1){
             nf=new Intent(getApplicationContext(), ReceiveNotif.class);
@@ -180,6 +182,7 @@ public class FCM_Notif extends FirebaseMessagingService {
         nf.putExtra("order",orderNumberSend);
         nf.putExtra("address",etAddressSend);
         nf.putExtra("tele",etTeleSend);
+        nf.putExtra("addressP", addressP);
         nf.putExtra("oneDevice","1");
         nf.putExtra("color",color);
         nf.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
