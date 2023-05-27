@@ -12,7 +12,6 @@ import android.widget.TextView;
 public class PickToOrder extends AppCompatActivity {
 
     Button btnPicked, btnDecline31;
-
     String partnerP, orderNumberR, addressP;
     TextView orderNumber, partnetPartner, addressPartnet;
 
@@ -36,12 +35,11 @@ public class PickToOrder extends AppCompatActivity {
         partnetPartner=findViewById(R.id.partner_to_send31);
         addressPartnet=findViewById(R.id.etAddress31);
         orderNumber=findViewById(R.id.order_number31);
-        Log.e("tag",orderNumberR);
+        //Log.e("tag",orderNumberR);
 
         partnetPartner.setText(partnerP);
         addressPartnet.setText(addressP);
         orderNumber.setText(orderNumberR);
-
 
         btnPicked.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,8 +54,6 @@ public class PickToOrder extends AppCompatActivity {
                 changeActivity(2, datos);
             }
         });
-
-
 
     }
 

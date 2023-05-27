@@ -47,19 +47,15 @@ public class DeliverOrder extends AppCompatActivity {
         teleD.setText(teleR);
         addressD.setText(addressR);
         orderNumber.setText(orderNumberR);
-
     }
 
     private void delivered ( ) {
         //Aqui va el cierre de proceso enviando a la bd de dato fa finalización de la entrega
 
-
         if (end>1) {
             Toast.makeText(getApplicationContext(), "Finalizó el proceso de engrega", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), StartRiders.class);
             startActivity(intent);
-
-
         }else {
             end+=1;
             Toast.makeText(getApplicationContext(), "Hay que reconfirmar la entrega", Toast.LENGTH_SHORT).show();

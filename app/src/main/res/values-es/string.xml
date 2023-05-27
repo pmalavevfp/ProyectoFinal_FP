@@ -16,4 +16,10 @@
     <string name="btn_delivered">Entregado</string>
     <string name="btn_declined">Reasignado</string>
     <string name="t_Ready">Listo</string>
+    <string name="t_order_nnumber">Pedido No. 6CFW100</string>
+    <string name="t_address_order">Dirección</string>
+    <string name="t_telephone_order">Teléfono del ciente</string>
+    <string name="address">Dirección de Entrega</string>
+    <string name="requirement">Requerimiento esencial</string>
+    <string name="telephone">Teléfono</string>
 </resources>

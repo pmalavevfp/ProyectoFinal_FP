@@ -44,7 +44,6 @@ public class DeclineOrder extends AppCompatActivity {
             color = datos.getString("color");
             oneDevice = datos.getString("oneDevice");
 
-            //Log.e("TAG", teleR);
         }
 
         Toast.makeText(getApplicationContext(),etAddressSend, Toast.LENGTH_LONG).show();
@@ -94,12 +93,10 @@ public class DeclineOrder extends AppCompatActivity {
             mynotif.add(request);
 
             comeback ();
-
         }catch(JSONException e){
             e.printStackTrace();
         }
     }
-
     private void comeback() {
         Toast.makeText(this,"El Pedido se ha Reasignado", Toast.LENGTH_LONG).show();
         Intent intent = new Intent (getApplicationContext(), StartRiders.class);

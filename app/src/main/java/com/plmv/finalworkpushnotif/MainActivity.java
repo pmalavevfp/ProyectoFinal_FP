@@ -68,20 +68,15 @@ public class MainActivity extends AppCompatActivity {
                             Log.w(TAG, "Fetching FCM registration token failed", task.getException());
                             return;
                         }
-
                         // Get new FCM registration token
                         String token = task.getResult();
 
-                        // Log and toast
-//                        String msg = getString(R.string.msg_token_fmt, token);
-//                        Log.d(TAG, msg);
                         Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
 
                         Log.e("token","mi token es:"+token);
                         //tokenphone=token;
                     }
                 });
-
 
     }
 
@@ -122,9 +117,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             intent = new Intent (getApplicationContext(), StartRiders.class);
         }
-
         startActivity(intent);
         finish();
-
     }
 }

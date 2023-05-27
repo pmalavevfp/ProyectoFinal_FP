@@ -11,22 +11,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
-import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-
-import com.bumptech.glide.Glide;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.squareup.picasso.Picasso;
-
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
 
 public class FCM_Notif extends FirebaseMessagingService {
     public static final String NOMBRE_CANAL="nombreCanal2";
@@ -42,7 +35,7 @@ public class FCM_Notif extends FirebaseMessagingService {
     }
 
     private void saveToken(String token) {
-        // El Token del device se guardara en DB de django
+        // El Token del device se guardará en DB de django
     }
 
     @Override
@@ -51,18 +44,10 @@ public class FCM_Notif extends FirebaseMessagingService {
 
         String from= remoteMessage.getFrom();
 
-        Log.e("TAG","MEnsaje Recivido de "+from);
-
-//        if (remoteMessage.getNotification() !=null){
-//            Log.e("TAG","Titulo"+remoteMessage.getNotification().getTitle());
-//            Log.e("TAG","Body"+remoteMessage.getNotification().getBody());
-//        }
+        //Log.e("TAG","MEnsaje Recibido de "+from);
 
         if (remoteMessage.getData().size()>0){
 
-//            Log.e ("TAG", "El titulo es "+remoteMessage.getData().get("titulo"));
-//            Log.e("TAG","El body es "+remoteMessage.getData().get("body"));
-//            Log.e("TAG","El color es "+remoteMessage.getData().get("color"));
 
             String titulo = remoteMessage.getData().get("titulo");
 
@@ -71,7 +56,6 @@ public class FCM_Notif extends FirebaseMessagingService {
             String color= remoteMessage.getData().get("color");
 
             String addressP=remoteMessage.getData().get("addressP");
-
 
             String cashSend= remoteMessage.getData().get("cash");
 
@@ -89,33 +73,14 @@ public class FCM_Notif extends FirebaseMessagingService {
 
             int x=Integer.valueOf(xx);
 
-
-            //if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                mayorqueoreo(titulo, detalle, color, x, cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP,imgUrl );
-//            }
-//
-//            if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.O) {
-//                menorqueoreo(titulo, detalle);
-//            }
+            greaterThanOreo(titulo, detalle, color, x, cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP,imgUrl );
         }
 
-
     }
 
-    private void menorqueoreo(String titulo, String detalle) {
-
-    }
-
-    //Metodo para recivir notificaciones push de tal manera de dependiendo de si es android
-    //oreo o mayor se crea el canal necesario para este notificacion o si es menor no hace
-    // falta crear dicho canal
-
-
-    //private void mayorqueoreo(String titulo, String detalle, String foto) {
-    private void mayorqueoreo(String titulo, String detalle, String color, int x,String cashSend, String partnerSendS,String orderNumberSend,String etAddressSend,String etTeleSend, String addressP,String imgUrl) {
+    private void greaterThanOreo(String titulo, String detalle, String color, int x,String cashSend, String partnerSendS,String orderNumberSend,String etAddressSend,String etTeleSend, String addressP,String imgUrl) {
         Context context = null;
-        //Toast.makeText(getApplicationContext(), orderNumberSend, Toast.LENGTH_LONG).show();
-        Log.e("TAG", orderNumberSend);
+        //Log.e("TAG", orderNumberSend);
         Uri soundUri = Uri.parse(
                 "android.resource://" +
                         getApplicationContext().getPackageName() +
@@ -139,13 +104,11 @@ public class FCM_Notif extends FirebaseMessagingService {
             AudioAttributes.Builder ab= new AudioAttributes.Builder();
             ab.setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION);
             ab.setUsage(AudioAttributes.USAGE_NOTIFICATION);
-            //ab.setUsage(AudioAttributes.USAGE_ALARM);
             AudioAttributes audioAttributes = ab.build();
 
             MediaPlayer mp =MediaPlayer.create(this, R.raw.pacman_song);
             mp.start();
             //nc.setSound(soundUri, audioAttributes);
-            //nc.setSound(Uri.parse("C:\Users\PLMV\Desktop\ANdroidProyect\ProyectoFinal\ProyectoFinal_FP\app\main\res\raw"+"", ));
             Uri soundCH=Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+ "://" + getPackageName() +"/"+R.raw.pacman_song);
             nc.setSound(soundCH, audioAttributes);
 
@@ -155,25 +118,6 @@ public class FCM_Notif extends FirebaseMessagingService {
         }
 
         Bitmap largeIcon= BitmapFactory.decodeResource(getResources(),R.drawable.deliver2);
-//        NotificationCompat.BigTextStyle style = new NotificationCompat.BigTextStyle();
-//        style.bigText(detalle);
-//        style.setSummaryText(titulo);
-
-//        NotificationCompat.BigPictureStyle style = new NotificationCompat.BigPictureStyle();
-//        style.setBigContentTitle(titulo);
-//        style.setSummaryText(detalle);
-//        try {
-//            style.bigPicture(Glide.with(FCM_Notif.this).asBitmap().load(imgUrl).submit().get());
-//        } catch (ExecutionException e) {
-//            throw new RuntimeException(e);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-
-
-        //Bitmap imf_foto= Picasso.get().load(imgUrl).get();
-        //style.bigPicture(Picasso.get().load(imgUrl).centerCrop().into(););
-
 
         try {
             PendingIntent pendingIntent2=clicknoti(color, x,cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP, titulo, detalle, imgUrl);
@@ -182,18 +126,12 @@ public class FCM_Notif extends FirebaseMessagingService {
             nb.setPriority(NotificationCompat.PRIORITY_HIGH);
             nb.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
 
-            //Bitmap imf_foto= Picasso.get().load(foto).get();
             builder.setWhen(System.currentTimeMillis())
-            //nb.setAutoCancel(true)
-
                     .setAutoCancel(true)
                     .setContentTitle(titulo)
                     .setSmallIcon(R.drawable.baseline_bike_scooter_24)
                     .setContentText(detalle)
                     .setLargeIcon(largeIcon)
-//                    .setStyle(new NotificationCompat.BigPictureStyle()
-//                    .bigPicture(imf_foto).bigLargeIcon(null))
-
 
 //                    .setStyle(new NotificationCompat.BigTextStyle()
 //                            //.bigText(getString(detalle))
@@ -204,16 +142,10 @@ public class FCM_Notif extends FirebaseMessagingService {
                     .setStyle(new NotificationCompat.BigPictureStyle()
                             .bigPicture(largeIcon)
                             .bigLargeIcon(null))
-
-
                     .setContentIntent(pendingIntent2)
                     .setSilent(true)
-                    //.setSound(Uri.parse("https://www.locutortv.es/sonido/2016_1enero_locutores_locuciones/musica_sin_copyright_royalty_free_music/dance_royalty_free_music_musica_sin_copyright/geriatrico128FBC_dance.mp3"))
-                    //.setSound(soundUri)
                     .setContentInfo("nuevo");
-                    //.setStyle(style);
 
-            //Notification notification=nb.build();
 
             Random random=new Random();
             int idNotity =random.nextInt(8000);
