@@ -87,10 +87,10 @@ public class FCM_Notif extends FirebaseMessagingService {
                         "/" +
                         R.raw.pacman_song);
 
-        String id="mensaje";
+
         NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,id);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,ID_CANAL);
 
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -106,8 +106,7 @@ public class FCM_Notif extends FirebaseMessagingService {
             ab.setUsage(AudioAttributes.USAGE_NOTIFICATION);
             AudioAttributes audioAttributes = ab.build();
 
-            MediaPlayer mp =MediaPlayer.create(this, R.raw.pacman_song);
-            mp.start();
+
             //nc.setSound(soundUri, audioAttributes);
             Uri soundCH=Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+ "://" + getPackageName() +"/"+R.raw.pacman_song);
             nc.setSound(soundCH, audioAttributes);
@@ -118,7 +117,8 @@ public class FCM_Notif extends FirebaseMessagingService {
         }
 
         Bitmap largeIcon= BitmapFactory.decodeResource(getResources(),R.drawable.deliver2);
-
+        MediaPlayer mp =MediaPlayer.create(this, R.raw.pacman_song);
+        mp.start();
         try {
             PendingIntent pendingIntent2=clicknoti(color, x,cashSend, partnerSendS, orderNumberSend, etAddressSend, etTeleSend, addressP, titulo, detalle, imgUrl);
             NotificationCompat.Builder nb = new NotificationCompat.Builder(context, ID_CANAL);

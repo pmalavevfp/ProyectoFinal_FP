@@ -70,13 +70,20 @@ public class SendNotif extends AppCompatActivity {
 
     private void callRiders( String cashSend, String partnerSendS, String orderNumberSend, String etAddressSend, String etTeleSend) {
 
-
+        // ei8e0FHfSUirlR5xHCUXv-:APA91bHIwZ0LgP0TnfOJAIGOrPAVKlQh5VSJWCn_Av9LkzjL8x_h80WgWR1I1wslkQX1tjawf5kW5vTqCOH6gj3J4IFgUX0zKhVk06tX0b4fwFJhixjeEfGPZfsVlnp_t4ft81KgPHxl
         //doBE5wOiQOqTjIoWfngBmD:APA91bGRHd1FUQ8Q_ijC0r4mH-Ca8S7CbxkoCeEpXLak_IGl-dsvgZiUN76N3uwF7V9p6juSbrGzpPv-IK1S43kP6ak6i0I6FOxWyVcQ5Bt5pDSj-n7toG6qLNsZ76OlHqspuCEFC7FQ
+
+        String pixel_4_XL_API_30= "c3zvbSu0QlC36x8tDwmHi3:APA91bH2xnUYVm9s_P1SpVzSACMr38fhvvpUmOUQVn5kCz5E1VuKbIGKAvni7QaT677gSXQZJUsyqIiWLfsnh5JSNXWSa09G-7h0WIusyg7BKV88faA-smTbeX055gaIGdcG3eZH7lvx";
+        String pixel_4a_API_30 ="ftxilDmYSsSLtNzpAII7KF:APA91bHCBnvIfavQm8BYXk3BnSjQ6qEmG8kqefsDFL8qizT4bIDbO_9O1khocxzSvmJsUfmDdDUEfedE-zoRil2x8gKeI36pJSxzGzG0qH3FE6JFX879JY2WJD8FUmV7TJpV0zqG1x8P";
+        String nexus_S_API_28="doBE5wOiQOqTjIoWfngBmD:APA91bGRHd1FUQ8Q_ijC0r4mH-Ca8S7CbxkoCeEpXLak_IGl-dsvgZiUN76N3uwF7V9p6juSbrGzpPv-IK1S43kP6ak6i0I6FOxWyVcQ5Bt5pDSj-n7toG6qLNsZ76OlHqspuCEFC7FQ";
+        String pixel_XL_API_26="ei8e0FHfSUirlR5xHCUXv-:APA91bHIwZ0LgP0TnfOJAIGOrPAVKlQh5VSJWCn_Av9LkzjL8x_h80WgWR1I1wslkQX1tjawf5kW5vTqCOH6gj3J4IFgUX0zKhVk06tX0b4fwFJhixjeEfGPZfsVlnp_t4ft81KgPHxl";
+
+
         RequestQueue mynotif= Volley.newRequestQueue(getApplicationContext());
         JSONObject jsob= new JSONObject();
 
         try{
-            jsob.put("to","doBE5wOiQOqTjIoWfngBmD:APA91bGRHd1FUQ8Q_ijC0r4mH-Ca8S7CbxkoCeEpXLak_IGl-dsvgZiUN76N3uwF7V9p6juSbrGzpPv-IK1S43kP6ak6i0I6FOxWyVcQ5Bt5pDSj-n7toG6qLNsZ76OlHqspuCEFC7FQ");
+            jsob.put("to",pixel_4a_API_30);
             JSONObject notif=new JSONObject();
             notif.put ("titulo", "Tienes una nueva entrega pedido");
             //notif.put("detalle", "Dirigite a recoger el \npedido en "+ partnerSendS);

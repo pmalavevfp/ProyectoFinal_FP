@@ -1,6 +1,6 @@
 package com.plmv.finalworkpushnotif;
 
-import static com.plmv.finalworkpushnotif.R.id.tvData;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -71,7 +71,7 @@ public class ReceiveNotif extends AppCompatActivity {
         addressDeliver.setText(addressR);
 
         //tvData.setText(color);
-        Toast.makeText(this, color, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, color, Toast.LENGTH_LONG).show();
     }
 
     private void changeActivity(int x, Bundle datos) {
